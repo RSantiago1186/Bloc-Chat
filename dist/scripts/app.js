@@ -5,7 +5,7 @@
       enabled: true,
       requireBase: false
     });
-
+    
     $stateProvider
       .state('main', {
       url: '/',
@@ -15,6 +15,6 @@
   }
 
     angular
-      .module('blocChat', ['ui.router', 'firebase'])
+      .module('blocChat', ['ui.router', 'firebase', 'ui.bootstrap'])
       .config(config);
   })();
