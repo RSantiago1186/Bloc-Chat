@@ -4,38 +4,41 @@
   </div>
 </nav>
 
+<div class="container">
+  <div class="row">
+    <div class="sidebar col-md-3 no-float">
 
-<section class="container sidebar">
-  
-  <div class="left-column col-sm-2">
-      
-      <button class="btn btn-info" ng-click="main.openModal()">New Room</button>
-    
-    <div class="list-group" ng-repeat="room in main.chatrooms">
-      <a href="" class="list-group-item" ng-click="main.setCurrentChatRoom(room); main.currentRoomShowing = true">{{room.$value}}</a>
-      
-         <!--<a ng-click="home.setCurrentChatRoom(room); home.currentRoomShowing = true" href="#" class="list-group-item">{{ room.$value }}</a>-->
-         
-         
+      <button class="btn btn-info new-room-button" ng-click="main.openModal()">New Room</button>
+
+      <div class="list-group" ng-repeat="room in main.chatrooms">
+        <a href="" class="list-group-item" ng-click="main.setCurrentChatRoom(room); main.currentRoomShowing = true">{{room.$value}}</a>
+
+      </div>
     </div>
-  </div>
 
-</section>
+    <div class="chatroom col-md-9 no-float">
 
-<section class="container">
-  <div class="right-column col-sm-10">
-  
-    <div class="panel panel-default">
-      <!-- Default panel contents -->
-      <div class="panel-heading" ng-show="main.currentRoomShowing"><h3>{{main.currentRoom.$value}}</h3></div>
-      
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading" ng-show="main.currentRoomShowing"><h3>{{main.currentRoom.$value}}</h3></div>
 
-      <!-- Table -->
-        <div class="panel-body">
+
+        <!-- Table -->
+        <table class="table">
           <p ng-repeat="message in main.messages">{{ message.username }}: {{ message.content }}: {{ message.sentAt }}</p>
         </div>
+      </table>
+
+      <div class="row">
+      <div class="message-write clearfix">
+        <textarea class="form-control send-form" placeholder="type a message" ng-model="main.content"></textarea>
+        <button type="submit" class="btn btn-primary send-button" ng-click="main.sendMessage()">Send</button>
+      </div>
+      </div>
+
     </div>
-  
+
   </div>
-  
-</section>
+
+</div>
+
